@@ -8,7 +8,6 @@ class App
         if ($product) {
             self::$fApi = self::$fApi . "/category/" . $product;
         }
-
         try {
             $array = self::getData();
             self::viewData($array);
@@ -17,9 +16,6 @@ class App
         }
     }
 
-    public static function getData()
-    {
-        $json = @file_get_contents(self::$fApi);
 
         if (!$json) {
             throw new Exception("
@@ -48,8 +44,6 @@ class App
                 ";
             }
 
-           
-         }
         $list .= "</ul>";
 
         echo $list;
