@@ -1,0 +1,31 @@
+SELECT
+orders.order_id AS Ordernummer,
+customers.name AS Kund,
+products.name AS Produkt,
+orders.order_date AS Orderdatum
+FROM customers, products, orders
+WHERE customers.customer_id = orders.customer_id
+AND products.id = orders.product_id
+
+
+
+den koden som finns i admin.php tror jag man kan använda för att hämta orderinformationen.
+Alltså att man gör om SQL koden till att hämta ordern.
+
+
+meddelenadet som displayar "Tack för din order XXXX" finns på cart.php. (Rad 30).
+
+Den kanske man kan ta och lägga till SQL koden som hämtar orderinformationen och så kan den visa:
+
+EXEMPEL
+"
+Tack för din order XXXX
+
+Kvittot för ordern är:
+xxxxx
+xxxxxx
+xxxxxx
+xxxxx  
+"
+Har du tid så kan du hitta ett sätt att byta ut vår bild på framsidan längst upp, den som visar en dator och mobil.
+

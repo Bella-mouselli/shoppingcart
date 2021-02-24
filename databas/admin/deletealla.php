@@ -4,15 +4,15 @@ require_once ("C:\MAMP\htdocs\databas\database.php");
 require_once ("admin.php");
 
 
-$id = htmlspecialchars($_GET['id']);
+$customer_id = htmlspecialchars($_GET['customer_id']);
 
 //echo "<h2>Ta bort</h2>";
 
-$sql = "DELETE FROM foods";
+$sql = "DELETE FROM customers";
 
 
 $stmt = $conn->prepare($sql);
-$stmt->bindParam(':id', $id);
+$stmt->bindParam(':customer_id', $customer_id);
 $stmt->execute();
 $rowCount = $stmt->rowCount();
 

@@ -8,7 +8,7 @@
 
 
  
- $stmt = $conn->prepare("SELECT * FROM foods");
+ $stmt = $conn->prepare("SELECT * FROM customers");
 
  
  $stmt->execute();
@@ -18,10 +18,10 @@
  $table = "
     <table class='table table-hover'>
     <tr>
-        <th>Pizza</th>
-        <th>Burgare</th>
-        <th>Pasta</th>
-        <th>Dricka</th>
+        <th>Namn</th>
+        <th>e-post</th>
+        <th>Telefon</th>
+        <th>Adress</th>
     </tr>
     ";
 
@@ -34,15 +34,16 @@
     $table .= "
         <tr>
             
-            <td>$value[category]</td>
-            <td>$value[foods]</td>
-            <td>$value[meddelande]</td>
+            <td>$value[name]</td>
+            <td>$value[email]</td>
+            <td>$value[tel]</td>
+            <td>$value[address]</td>
             <td>
-                <a href='delete.php?id=$value[id]'>Ta bort alla</a>
+                <a href='delete.php?id=$value[id]'>Skicka beställning</a>
             </td>
 
             <td>
-            <a href='deletealla.php?id=$value[id]'>Ta bort </a>
+            <a href='deletealla.php?id=$value[id]'>Skicka beställning </a>
         </td>
         </tr>
     ";

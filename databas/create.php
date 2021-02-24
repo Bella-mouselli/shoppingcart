@@ -10,17 +10,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // print_r($_POST);
     echo "</pre>";
 
-    $foods = $_POST['foods'];
-    $category = $_POST['category'];
-    $meddelande = $_POST['meddelande'];
+    $name = $_POST['name'];
+    $tel = $_POST['tel'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
 
     
-    $stmt = $conn->prepare("INSERT INTO foods (foods, category, meddelande)
-                                VALUES (:name , :mail, :meddelande)");
+    $stmt = $conn->prepare("INSERT INTO customers (name, tel, email, address)
+                                VALUES (:name , :tel, :email, :address)");
 
     $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':mail', $mail);
-    $stmt->bindParam(':meddelande', $meddelande);
+    $stmt->bindParam(':tel', $tel);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':address', $address);
 
     
     $stmt->execute();
@@ -36,23 +38,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-
-<form action="#" class="row" method="post">
+<legend> leverans information</legend>
+<form action="#" class="#" method="post">
 
 <div class="col-md-6 my-2">
     <input type="text" class="form-control" name="name" required placeholder= "Namn">
 </div>
 
 <div class="col-md-6 my-2">
-    <input type="text" class="form-control" name="mail" required placeholder= "E-post">
+    <input type="text" class="form-control" name="tel" required placeholder= "Telefon">
+</div>
+
+<div class="col-md-6 my-2">
+    <input type="text" class="form-control" name="email" required placeholder= "E-post">
+</div>
+
+<div class="col-md-6 my-2">
+    <input type="text" class="form-control" name="address" required placeholder= "adress">
 </div>
 
 <div class="col-md-6 my-4">
-    <input type="text" class="form-control" name="meddelande" required placeholder= "Meddelande">
-</div>
-
-<div class="col-md-6 my-4">
-    <input type="submit" value="Lägg till" class="form-control btn btn-outline-dark">
+    <input type="submit" value="Skicka Beställning" class="form-control btn btn-outline-dark">
 </div>
 <span class="badge badge bg-danger">
             <a class="text-light" href="admin/admin.php">Admin</a>

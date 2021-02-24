@@ -6,7 +6,6 @@ $dbUser = "root";
 $dbPass = "root";
 $db_DSN = "mysql:host=$server;dbname=$dbName;charset=UTF8";
 
-
 try {
 
     $conn = new PDO($db_DSN, $dbUser, $dbPass);
